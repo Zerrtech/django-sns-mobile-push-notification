@@ -122,7 +122,7 @@ class Client(object):
         :param id: notification ID
         :return: response from SNS
         """
-        message = {"APNS": "{ \"aps\": { \"alert\": { \"title\": \"%s\", \"body\": \"%s\" }, \"sound\": \"default\" }, \"id\": \"%s\",  \"type\": \"%s\", \"serializer\": \"%s\" }" % (title, text, id, notification_type, json.dumps(data).replace("'", "").replace('"', "'"))}
+        message = {"APNS_SANDBOX": "{ \"aps\": { \"alert\": { \"title\": \"%s\", \"body\": \"%s\" }, \"sound\": \"default\" }, \"id\": \"%s\",  \"type\": \"%s\", \"serializer\": \"%s\" }" % (title, text, id, notification_type, json.dumps(data).replace("'", "").replace('"', "'"))}
         response = self.connection.publish(
             TargetArn=arn,
             Message=json.dumps(message),
